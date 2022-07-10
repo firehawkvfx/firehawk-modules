@@ -8,8 +8,8 @@ resource "aws_iam_role_policy" "cloudwatch_rendernode_logging" {
   policy = data.aws_iam_policy_document.cloudwatch_rendernode_logging.json
 }
 
+data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
-
 data "aws_iam_policy_document" "cloudwatch_rendernode_logging" {
   statement {
     effect = "Allow"
@@ -19,6 +19,6 @@ data "aws_iam_policy_document" "cloudwatch_rendernode_logging" {
       "logs:PutLogEvents",
       "logs:GetLogEvents"
     ]
-    resources = ["arn:aws:logs:${var.region}:${data.aws_caller_identity.current.account_id}:log-group:CloudWatchRenderNodeLoggingGroup:*"]
+    resources = ["arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:log-group:CloudWatchRenderNodeLoggingGroup:*"]
   }
 }
