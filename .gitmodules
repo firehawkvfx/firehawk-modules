@@ -1,0 +1,3 @@
+[submodule "modules/firehawk-pdg-test"]
+	path = modules/firehawk-pdg-test
+	url = https://github.com/firehawkvfx/firehawk-pdg-test.git
