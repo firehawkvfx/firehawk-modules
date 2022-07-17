@@ -21,7 +21,8 @@ data "aws_iam_policy_document" "cloudwatch_rendernode_logging" {
     ]
     resources = [ # TODO: codedeploy-updater-log should be unique for the render node log, and not shared with provisioner.
       "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:log-group:CloudWatchRenderNodeLoggingGroup:*",
-      "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:log-group:codedeploy-updater-log:log-stream:*"  
+      "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:log-group:codedeploy-updater-log:log-stream:*",
+      "arn:aws:logs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:log-group:codedeploy-deployments-log:log-stream:*"
     ]
   }
 }
