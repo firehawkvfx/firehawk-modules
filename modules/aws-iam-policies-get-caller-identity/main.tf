@@ -1,6 +1,6 @@
-terraform {
-  required_version = ">= 0.13.5"
-}
+# terraform {
+#   required_version = ">= 0.13.5"
+# }
 
 resource "aws_iam_role_policy" "get_caller_identity" {
   name = var.name
