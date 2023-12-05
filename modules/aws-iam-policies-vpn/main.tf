@@ -4,6 +4,8 @@ locals {
   nebula_config_lambda_function_name    = "nebula_config"
 }
 
+data "aws_caller_identity" "current" {}
+
 # TODO this needs to be created as a group, and attached to a role that does this
 # aws-iam-policies-vpn
 data "aws_iam_policy_document" "nebula_signer" {
