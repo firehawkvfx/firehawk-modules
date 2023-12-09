@@ -48,7 +48,7 @@ data "aws_s3_bucket" "vpn_certs" {
 }
 
 module "iam_policies_vpn" {
-  source       = "../aws-iam-policies-vpn"
+  source       = "github.com/firehawkvfx/firehawk-modules.git//modules/aws-iam-policies-vpn"
   resourcetier = var.resourcetier
   iam_role_id  = aws_iam_role.instance_role.id
   bucket_arns  = [data.aws_s3_bucket.vpn_scripts.arn, data.aws_s3_bucket.vpn_certs.arn]
